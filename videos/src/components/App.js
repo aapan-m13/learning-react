@@ -14,7 +14,7 @@ class App extends React.Component{
         this.onTermSubmit('Guns n Roses')
     }
 
-    onTermSubmit = async t => {
+    onTermSubmit = async (t) => {
         const response = await youtube.get("/search", {
           params: {
             q: t,
