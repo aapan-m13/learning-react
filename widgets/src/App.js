@@ -21,8 +21,8 @@ export default () => {
   return (
     <div>
       <br />
-      {/* <Search/> */}
-      <Accordion items={items}></Accordion>
+      <Search />
+      {/* <Accordion items={items}></Accordion> */}
     </div>
   );
 };
