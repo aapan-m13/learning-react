@@ -24,6 +24,21 @@ const Search = () => {
     }
   }, [term]);
 
+  let RenderDatas;
+
+  if (resData.length) {
+    RenderDatas = resData.map((res) => {
+      return (
+        <div className="item">
+          <div className="content">
+            <div className="header">{res.title}</div>
+            {res.snippet}
+          </div>
+        </div>
+      );
+    });
+  }
+
   return (
     <div>
       <div className="ui form">
@@ -38,6 +53,7 @@ const Search = () => {
           ></input>
         </div>
       </div>
+      {resData ? RenderDatas : <div></div>}
     </div>
   );
 };
