@@ -16,12 +16,10 @@ const items = [
   },
 ];
 
-console.log(items);
-
 export default function App() {
   return (
-    <div>
-      <Accordion />
+    <div className="ui styled accordion">
+      <Accordion items={items}></Accordion>
     </div>
   );
 }
