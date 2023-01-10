@@ -1,5 +1,7 @@
 import Expenses from "./components/Expenses/Expenses";
 import "./components/Expenses/expenses.css";
+import Card from "./components/Card/Card";
+
 function App() {
   const expenses = [
     {
@@ -26,9 +28,9 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
-      <div className="expenses">
+      <Card className="expenses">
         <Expenses expenseData={expenses}></Expenses>
-      </div>
+      </Card>
     </div>
   );
 }
