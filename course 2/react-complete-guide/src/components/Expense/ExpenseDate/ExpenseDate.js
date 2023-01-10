@@ -1,7 +1,7 @@
 import "./ExpenseDate.css";
 
 import React from "react";
-import Card from "../Card/Card";
+import Card from "../../UI/Card/Card";
 
 export default function ExpenseDate(props) {
   const month = props.date.toLocaleString("en-US", { month: "long" });
