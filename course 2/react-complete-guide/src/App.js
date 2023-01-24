@@ -1,6 +1,7 @@
 import Expenses from "./components/Expense/Expenses/Expenses";
 import "./components/Expense/Expenses/expenses.css";
 import Card from "./components/UI/Card/Card";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const App = () => {
   const expenses = [
@@ -29,6 +30,7 @@ const App = () => {
     <div>
       {/* <h2>Let's get started!</h2> */}
       <Card className="expenses">
+        <NewExpense></NewExpense>
         <Expenses expenseData={expenses}></Expenses>
       </Card>
     </div>
