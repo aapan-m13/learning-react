@@ -26,11 +26,16 @@ const App = () => {
     },
   ];
 
+  const addExpense = (newExpenseData) => {
+    expenses.push(newExpenseData);
+    console.log(expenses);
+  };
+
   return (
     <div>
       {/* <h2>Let's get started!</h2> */}
       <Card className="expenses">
-        <NewExpense></NewExpense>
+        <NewExpense onAddExpense={addExpense}></NewExpense>
         <Expenses expenseData={expenses}></Expenses>
       </Card>
     </div>
