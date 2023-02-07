@@ -13,14 +13,18 @@ export default function Expenses(props) {
   const expenses = props.expenseData.map((elm) => {
     return (
       <div>
-        <ExpensesFilter
-          selected={selectedYear}
-          selectedYear={yearSelectionHandler}
-        ></ExpensesFilter>
         <ExpenseItem data={elm} key={elm.id}></ExpenseItem>;
       </div>
     );
   });
 
-  return <div>{expenses}</div>;
+  return (
+    <div>
+      <ExpensesFilter
+        selected={selectedYear}
+        selectedYear={yearSelectionHandler}
+      ></ExpensesFilter>
+      {expenses}
+    </div>
+  );
 }
