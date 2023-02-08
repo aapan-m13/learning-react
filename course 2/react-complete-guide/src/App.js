@@ -33,7 +33,6 @@ const App = () => {
 
   return (
     <div>
-      {/* <h2>Let's get started!</h2> */}
       <Card className="expenses">
         <NewExpense onAddExpense={addExpense}></NewExpense>
         <Expenses expenseData={expenses}></Expenses>
