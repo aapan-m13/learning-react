@@ -3,26 +3,22 @@ import ExpensesFilter from "../ExpenseFilter/ExpenseFilter";
 import React, { useState } from "react";
 
 export default function Expenses(props) {
-  const [selectedYear, setSelecteedYear] = useState("2020");
+  const [selectedYear, setSelectedYear] = useState("2020");
 
   const yearSelectionHandler = (selectedData) => {
-    setSelecteedYear((prevState) => {
+    setSelectedYear((prevState) => {
       return selectedData;
     });
   };
   const expenses = props.expenseData.map((elm) => {
-    return (
-      <div>
-        <ExpenseItem data={elm} key={elm.id}></ExpenseItem>;
-      </div>
-    );
+    return <ExpenseItem data={elm} key={elm.id}></ExpenseItem>;
   });
 
   return (
     <div>
       <ExpensesFilter
-        selected={selectedYear}
-        selectedYear={yearSelectionHandler}
+        selectedYr={selectedYear}
+        selectYear={yearSelectionHandler}
       ></ExpensesFilter>
       {expenses}
     </div>

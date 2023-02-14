@@ -9,7 +9,6 @@ export default function NewExpense(props) {
       ...expenseData,
     };
     props.onAddExpense(newData);
-    // console.log(newData);
   };
 
   return (
