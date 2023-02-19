@@ -17,9 +17,13 @@ export default function Expenses(props) {
     return elm.date.getYear() === selectedYear - 1900;
   });
 
-  const expenses = filteredExpenses.map((elm) => {
-    return <ExpenseItem data={elm} key={elm.id}></ExpenseItem>;
-  });
+  const expenses = filteredExpenses.length ? (
+    filteredExpenses.map((elm) => {
+      return <ExpenseItem data={elm} key={elm.id}></ExpenseItem>;
+    })
+  ) : (
+    <p>No expesenses found</p>
+  );
 
   return (
     <div>
