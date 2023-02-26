@@ -1,5 +1,5 @@
-import ExpenseItem from "../ExpenseItem/ExpenseItem";
 import ExpensesFilter from "../ExpenseFilter/ExpenseFilter";
+import ExpenseList from "../ExpenseList/ExpenseList";
 import React, { useState } from "react";
 
 export default function Expenses(props) {
@@ -17,21 +17,13 @@ export default function Expenses(props) {
     return elm.date.getYear() === selectedYear - 1900;
   });
 
-  const expenses = filteredExpenses.length ? (
-    filteredExpenses.map((elm) => {
-      return <ExpenseItem data={elm} key={elm.id}></ExpenseItem>;
-    })
-  ) : (
-    <p>No expesenses found</p>
-  );
-
   return (
     <div>
       <ExpensesFilter
         selectedYr={selectedYear}
         selectYear={yearSelectionHandler}
       ></ExpensesFilter>
-      {expenses}
+      <ExpenseList items={filteredExpenses}></ExpenseList>
     </div>
   );
 }
