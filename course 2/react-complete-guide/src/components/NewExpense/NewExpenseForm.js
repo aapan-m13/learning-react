@@ -17,7 +17,7 @@ export default function NewExpenseForm(props) {
 
   const amountChangeHandler = (event) => {
     setUserInput((prevState) => {
-      return { ...prevState, amount: event.target.value };
+      return { ...prevState, amount: +event.target.value };
     });
   };
 

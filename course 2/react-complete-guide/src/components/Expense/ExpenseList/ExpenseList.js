@@ -6,8 +6,8 @@ export default function ExpenseList(props) {
   const expenses = props.items.length ? (
     props.items.map((elm) => {
       return (
-        <div className="expenses-list">
-          <ExpenseItem data={elm} key={elm.id}></ExpenseItem>
+        <div key={elm.id} className="expenses-list">
+          <ExpenseItem data={elm}></ExpenseItem>
         </div>
       );
     })

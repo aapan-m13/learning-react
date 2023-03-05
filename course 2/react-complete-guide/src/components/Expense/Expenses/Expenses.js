@@ -1,5 +1,6 @@
 import ExpensesFilter from "../ExpenseFilter/ExpenseFilter";
 import ExpenseList from "../ExpenseList/ExpenseList";
+import ExpensesChart from "../ExpensesChart";
 import React, { useState } from "react";
 
 export default function Expenses(props) {
@@ -23,6 +24,7 @@ export default function Expenses(props) {
         selectedYr={selectedYear}
         selectYear={yearSelectionHandler}
       ></ExpensesFilter>
+      <ExpensesChart items={filteredExpenses}></ExpensesChart>
       <ExpenseList items={filteredExpenses}></ExpenseList>
     </div>
   );
