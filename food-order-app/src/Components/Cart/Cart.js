@@ -6,16 +6,21 @@ import CartContext from "../store/cart-context";
 export default function Cart(props) {
   const cartCtx = useContext(CartContext);
 
-  console.log(cartCtx.totalAmount);
-
   const cartItems = cartCtx.items.map((item) => {
-    console.log(item);
     return (
       <ul className={styles["cart-items"]} key={item.id}>
         <div>{item.item}</div>
         <div>
           {item.price}
-          <span>+</span>
+          <span
+            onClick={() => {
+              item.amount = 1;
+              console.log(item);
+              cartCtx.addItem(item);
+            }}
+          >
+            +
+          </span>
           <span>-</span>
         </div>
       </ul>

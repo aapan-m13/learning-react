@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useContext } from "react";
 import CartContext from "./cart-context";
 
 const INIT_CART_STATE = {
@@ -8,12 +8,25 @@ const INIT_CART_STATE = {
 
 const cartReducer = (state, action) => {
   if (action.type === "ADD_ITEM") {
-    const updatedItems = state.items.concat(action.item);
-    console.log(action);
-    const updatedTotalAmount =
-      state.totalAmount + action.item.amount * action.item.price;
+    if (action.contextData.length > 0) {
+      let exists = false;
+      action.contextData.forEach((item) => {
+        if (item.id === action.item.id) {
+          exists = true;
+          item.amount = item.amount + action.item.amount;
+        }
+      });
+      if (!exists) action.contextData.push(action.item);
+    } else {
+      console.log("here");
+      action.contextData.push(action.item);
+    }
+    console.log(action.contextData);
+    // const updatedItems = state.items.concat(action.item);
+    const updatedTotalAmount = action.item.amount * action.item.price;
+
     return {
-      items: updatedItems,
+      items: action.contextData,
       totalAmount: updatedTotalAmount,
     };
   }
@@ -21,14 +34,16 @@ const cartReducer = (state, action) => {
 };
 
 export default function CartContextProvider(props) {
+  const cartCtx = useContext(CartContext);
+
   const [cartState, dispatchCartAction] = useReducer(
     cartReducer,
     INIT_CART_STATE
   );
 
   const addItemToCartHandler = (item) => {
-    console.log(item);
     dispatchCartAction({
+      contextData: cartCtx.items,
       type: "ADD_ITEM",
       item: item,
     });
